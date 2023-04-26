@@ -40,6 +40,8 @@ export default {
     irPara() {
       //console.log(this.$router);
       this.$router.push('/home')
+      //this.$router.forward() a função forward() permite avançar no histórico de navegação
+      //this.$router.back() a função back() permite retornar no histórico de navegação
     },
   },
 };
