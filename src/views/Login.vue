@@ -6,7 +6,7 @@
         <div class="navbar-nav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/">Voltar</a>
+              <a class="nav-link" href="/inicio">Voltar</a>
             </li>
           </ul>
         </div>

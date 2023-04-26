@@ -6,29 +6,12 @@
         <div class="navbar-nav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/">Sair</a>
+              <router-link class="nav-link" to="/inicio">Sair</router-link>
             </li>
           </ul>
         </div>
       </div>
     </nav>
-
-    <!-- <div class="dropdown">
-      <router-link
-        class="dropdown-toggle"
-        to="/home/vendas"
-        role="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        Vendas
-      </router-link>
-
-      <ul class="dropdown-menu">
-        <li><router-link class="dropdown-item" to="/home/vendas/leads">Leads</router-link></li>
-        <li><router-link class="dropdown-item" to="/home/vendas/contratos">Contratos</router-link></li>
-      </ul>
-    </div> -->
 
     <div class="d-flex">
       <div class="list-group menu-esquerda">

@@ -9,9 +9,9 @@ import Contracts from '@/components/sales/Contracts.vue'
 
 const routes = [
     {
-        path: '/',
+        path: '/inicio',
         name: 'site',
-        component: Site
+        component: Site,
     },
     {
         path: '/home',
@@ -20,14 +20,17 @@ const routes = [
         children: [
             {
                 path: 'Vendas',
+                name: 'Vendas',
                 component: Sales,
                 children: [
                     {
                         path: 'leads',
+                        name: 'Leads',
                         component: Leads
                     },
                     {
                         path: 'contratos',
+                        name: 'Contratos',
                         component: Contracts
                     },
                 ]

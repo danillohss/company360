@@ -6,7 +6,9 @@
         <div class="navbar-nav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="/login">Fazer Login</a>
+              <router-link class="nav-link" to="/login"
+                >Fazer Login</router-link
+              >
             </li>
           </ul>
         </div>
