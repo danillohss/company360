@@ -2,7 +2,7 @@
   <div>
     <nav class="navbar navbar-light bg-light menu-superior">
       <div class="container">
-        <a class="navbar-brand" href="#">Empresa 360</a>
+        <router-link class="navbar-brand" to="/home">Empresa 360</router-link>
         <div class="navbar-nav">
           <ul class="navbar-nav">
             <li class="nav-item">
@@ -15,7 +15,9 @@
 
     <div class="d-flex">
       <div class="list-group menu-esquerda">
-        <router-link class="list-group-item list-group-item-action" to="/home"
+        <router-link
+          class="list-group-item list-group-item-action"
+          to="/home/dashboard"
           ><i class="bi bi-speedometer2"></i> Dashboard</router-link
         >
 
@@ -65,7 +67,7 @@
         </nav>
 
         <div class="container-fluid">
-          <router-view> </router-view>
+          <router-view />
         </div>
       </div>
     </div>
@@ -91,5 +93,10 @@ export default {
 .list-group-item {
   border-top: none;
   border-right: none;
+}
+
+.router-link-exact-active {
+  color: #fff;
+  background-color: #0d6efd;
 }
 </style>

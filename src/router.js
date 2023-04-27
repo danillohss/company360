@@ -6,7 +6,7 @@ import Services from '@/components/services/Services.vue'
 import Sales from '@/components/sales/Sales.vue'
 import Leads from '@/components/sales/Leads.vue'
 import Contracts from '@/components/sales/Contracts.vue'
-
+import Dashboard from '@/components/dashboard/Dashboard.vue'
 const routes = [
     {
         path: '/inicio',
@@ -38,6 +38,11 @@ const routes = [
             {
                 path: 'servicos',
                 component: Services
+            },
+            {
+                path: 'Dashboard',
+                name: 'Dashboard',
+                component: Dashboard,
             }
         ]
     },
