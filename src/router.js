@@ -3,8 +3,11 @@ import Home from '@/views/Home.vue'
 import Site from '@/views/Site.vue'
 import Login from '@/views/Login.vue'
 import Services from '@/components/services/Services.vue'
+import Service from '@/components/services/Service.vue'
 import Sales from '@/components/sales/Sales.vue'
 import Leads from '@/components/sales/Leads.vue'
+import Lead from '@/components/sales/Lead.vue'
+import DefaultSale from '@/components/sales/DefaultSale.vue'
 import Contracts from '@/components/sales/Contracts.vue'
 import Dashboard from '@/components/dashboard/Dashboard.vue'
 const routes = [
@@ -19,25 +22,43 @@ const routes = [
         component: Home,
         children: [
             {
-                path: 'Vendas',
-                name: 'Vendas',
+                path: 'vendas',
+                name: 'vendas',
                 component: Sales,
                 children: [
                     {
                         path: 'leads',
-                        name: 'Leads',
+                        name: 'leads',
                         component: Leads
                     },
                     {
+                        path: 'leads/:id', //ROTA DINAMICA, PASSANDO UM ID(VARIÁVEL DINAMICA) COMO PARAMETRO
+                        name: 'lead',
+                        component: Lead
+                    },
+                    {
                         path: 'contratos',
-                        name: 'Contratos',
+                        name: 'contratos',
                         component: Contracts
+                    },
+                    {
+                        path: '',
+                        name: 'vendasPadrao',
+                        component: DefaultSale,
                     },
                 ]
             },
             {
                 path: 'servicos',
-                component: Services
+                name: 'servicos',
+                component: Services,
+                children: [
+                    {
+                        path: ':id',
+                        name: 'servico',
+                        component: Service,
+                    },
+                ]
             },
             {
                 path: 'Dashboard',

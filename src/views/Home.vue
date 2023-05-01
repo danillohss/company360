@@ -34,17 +34,17 @@
 
           <ul class="dropdown-menu">
             <li>
-              <router-link class="dropdown-item" to="/home/vendas"
+              <router-link class="dropdown-item" :to="{name: 'vendasPadrao'}"
                 >Vendas</router-link
               >
             </li>
             <li>
-              <router-link class="dropdown-item" to="/home/vendas/leads"
+              <router-link class="dropdown-item" :to="{name: 'leads'}"
                 >Leads</router-link
               >
             </li>
             <li>
-              <router-link class="dropdown-item" to="/home/vendas/contratos"
+              <router-link class="dropdown-item" :to="{ name: 'contratos' }"
                 >Contratos</router-link
               >
             </li>

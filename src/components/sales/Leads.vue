@@ -11,12 +11,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="data in leads" :key="data.id">
+        <tr v-for="data in dados" :key="data.id">
           <td>{{ data.id }}</td>
           <td>{{ data.nome }}</td>
           <td>{{ data.telefone }}</td>
           <td>
-            <router-link to="/home/vendas/leads" class="btn btn-sm btn-primary"
+            <router-link
+              :to="{ name: 'lead', params: { id: data.id } }"
+              class="btn btn-sm btn-primary"
               ><i class="bi bi-pencil-square"></i
             ></router-link>
           </td>
@@ -27,23 +29,12 @@
 </template>
 
 <script>
-import api from "../../services/api.js";
+import ApiMixin from "@/mixins/ApiMixin";
 export default {
-  // eslint-disable-next-line
-  name: "Leads",
-  data: () => ({
-    leads: [],
-  }),
-  methods: {
-    async getApiData() {
-      const response = await api.get("/leads");
-      this.leads = response.data;
-      console.log("cheguei");
-      console.log(this.leads);
-    },
-  },
+  name: "LEADS",
+  mixins: [ApiMixin],
   created() {
-    this.getApiData();
+    this.getApiData("/leads");
   },
 };
 </script>

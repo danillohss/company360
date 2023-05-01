@@ -1,10 +1,31 @@
 <template>
-  <h3>Serviços</h3>
+  <div>
+    <h5>Serviços</h5>
+    <hr />
+    <div class="row">
+      <div class="col mb-2" v-for="data in dados" :key="data.id">
+        <div class="card" style="width: 11rem">
+          <img class="card-img-top" :src="`/img/${data.icone}`" />
+          <div class="card-body text-center">
+            <router-link :to="{ name: 'servico', params: { id: data.id } }">
+              <p class="card-text">{{ data.servico }}</p>
+            </router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <router-view class="mt-3" />
+  </div>
 </template>
 
 <script>
+import ApiMixin from "@/mixins/ApiMixin";
 export default {
-  // eslint-disable-next-line
-  name: "Serviços",
+  name: "SERCVICES",
+  mixins: [ApiMixin],
+  created() {
+    this.getApiData("/servicos");
+  },
 };
 </script>
