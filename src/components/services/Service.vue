@@ -15,10 +15,10 @@ export default {
   created() {
     this.getApiData(`servicos/${this.$route.params.id}`);
   },
-  watch: {
-    $route(to) {
+  beforeRouteUpdate(to) {
+    if (to.params.id != undefined) {
       this.getApiData(`/servicos/${to.params.id}`);
-    },
+    }
   },
 };
 </script>

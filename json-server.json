@@ -36,7 +36,7 @@
 		},
 		{
 			"id": 3,
-			"servico": "Seguro auto",
+			"servico": "Seguro veicular",
 			"icone": "seguro_auto.png",
 			"descricao": "O seguro de veículo é o seguro para carros, caminhões, motocicletas e outros veículos rodoviários. Seu uso principal é fornecer proteção financeira contra danos físicos ou lesões corporais resultantes de colisões de trânsito e contra responsabilidade que também possa surgir de incidentes em um veículo"
 		}

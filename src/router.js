@@ -1,9 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '@/views/Home.vue'
+import Rodape from '@/components/dashboard/Rodape.vue'
 import Site from '@/views/Site.vue'
 import Login from '@/views/Login.vue'
 import Services from '@/components/services/Services.vue'
 import Service from '@/components/services/Service.vue'
+import Options from '@/components/services/Options.vue'
+import Indicator from '@/components/services/Indicator.vue'
 import Sales from '@/components/sales/Sales.vue'
 import Leads from '@/components/sales/Leads.vue'
 import Lead from '@/components/sales/Lead.vue'
@@ -13,7 +16,6 @@ import Dashboard from '@/components/dashboard/Dashboard.vue'
 const routes = [
     {
         path: '/inicio',
-        name: 'site',
         component: Site,
     },
     {
@@ -56,15 +58,22 @@ const routes = [
                     {
                         path: ':id',
                         name: 'servico',
-                        component: Service,
+                        components: {
+                            default: Service,
+                            options: Options,
+                            indicator: Indicator,
+                        },
                     },
                 ]
             },
             {
                 path: 'Dashboard',
                 name: 'Dashboard',
-                component: Dashboard,
-            }
+                components: {
+                    default: Dashboard,
+                    rodape: Rodape,
+                }
+            },
         ]
     },
     {

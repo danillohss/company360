@@ -34,12 +34,12 @@
 
           <ul class="dropdown-menu">
             <li>
-              <router-link class="dropdown-item" :to="{name: 'vendasPadrao'}"
+              <router-link class="dropdown-item" :to="{ name: 'vendasPadrao' }"
                 >Vendas</router-link
               >
             </li>
             <li>
-              <router-link class="dropdown-item" :to="{name: 'leads'}"
+              <router-link class="dropdown-item" :to="{ name: 'leads' }"
                 >Leads</router-link
               >
             </li>
@@ -71,6 +71,9 @@
         </div>
       </div>
     </div>
+    <div class="rodape">
+      <router-view name="rodape" />
+    </div>
   </div>
 </template>
 <script>
@@ -98,5 +101,13 @@ export default {
 .router-link-exact-active {
   color: #fff;
   background-color: #0d6efd;
+}
+
+.rodape {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #ccc;
 }
 </style>

@@ -16,6 +16,8 @@
     </div>
 
     <router-view class="mt-3" />
+    <router-view name="options" />
+    <router-view name="indicator" />
   </div>
 </template>
 
