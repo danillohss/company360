@@ -82,7 +82,9 @@ const routes = [
         component: Login
     },
     {
-
+        //Redirecionamento// Caso o dashboard seja acessado pelo usuario, automaticamente ele será redirecionado para o inicio
+        // path: 'dashboard',
+        // redirect: '/inicio'
     },
 ]
 
