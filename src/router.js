@@ -13,6 +13,7 @@ import Lead from '@/components/sales/Lead.vue'
 import DefaultSale from '@/components/sales/DefaultSale.vue'
 import Contracts from '@/components/sales/Contracts.vue'
 import Dashboard from '@/components/dashboard/Dashboard.vue'
+import RouteNotFound from '@/views/RouteNotFound.vue';
 const routes = [
     {
         path: '/inicio',
@@ -86,6 +87,11 @@ const routes = [
         // path: 'dashboard',
         // redirect: '/inicio'
     },
+    { 
+        path: '/:catchAll(.*)*', 
+        component: RouteNotFound, 
+        name: 'RouteNotFound' 
+    }
 ]
 
 const router = createRouter({
