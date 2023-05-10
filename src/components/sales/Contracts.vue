@@ -1,18 +1,42 @@
 <template>
   <div>
     <h3>Contratos</h3>
-
-    <router-link
-      class="btn btn-primary"
-      :to="{ name: 'contratos', query: { leadId_like: 1 } }"
-      >Lead = 1</router-link
-    >
-    <router-link
-      class="btn btn-primary"
-      :to="`/home/vendas/contratos${this.teste}`"
-      >Servico = 2</router-link
-    >
-
+    <div class="card mb-4">
+      <div class="card-header">Filtrar contratos</div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6">
+            <label class="form-label">ID Contrato:</label>
+            <input
+              type="text"
+              class="form-control"
+              v-model="formFilter.id_like"
+            />
+          </div>
+          <div class="col-6">
+            <label class="form-label">Data início:</label>
+            <div class="input-group">
+              <input
+                type="date"
+                class="form-control"
+                v-model="formFilter.data_inicio_gte"
+              />
+              <input
+                type="date"
+                class="form-control"
+                v-model="formFilter.data_inicio_lte"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <button type="button" class="btn btn-primary" @click="search()">
+          Filtrar
+        </button>
+      </div>
+    </div>
+    <hr />
     <table class="table table-hover table-striped">
       <thead>
         <tr>
@@ -43,10 +67,24 @@ export default {
   mixins: [ApiMixin],
   data: () => ({
     params: "_expand=lead&_expand=servico",
-    teste: "?servicoId_like=2",
+    formFilter: {
+      id_like: "",
+      data_inicio_gte: "",
+      data_inicio_lte: "",
+    },
   }),
+  methods: {
+    search() {
+      Object.keys(this.formFilter).forEach((key) => {
+        if (this.formFilter[key] == "") delete this.formFilter[key];
+      });
+      const queryParams = new URLSearchParams(this.formFilter).toString();
+      this.getApiData(`/contratos?${this.params}&${queryParams}`);
+    },
+  },
   created() {
-    this.getApiData(`/contratos?${this.params}`);
+    const queryParams = new URLSearchParams(this.$route.query).toString();
+    this.getApiData(`/contratos?${this.params}&${queryParams}`);
   },
   beforeRouteUpdate(to) {
     const queryParams = new URLSearchParams(to.query);
