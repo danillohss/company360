@@ -75,20 +75,17 @@ export default {
   }),
   methods: {
     search() {
-      Object.keys(this.formFilter).forEach((key) => {
-        if (this.formFilter[key] == "") delete this.formFilter[key];
-      });
-      const queryParams = new URLSearchParams(this.formFilter).toString();
-      this.getApiData(`/contratos?${this.params}&${queryParams}`);
+      const url = `/contratos?${this.params}`;
+      this.getApiData(url, this.formFilter);
     },
   },
   created() {
-    const queryParams = new URLSearchParams(this.$route.query).toString();
-    this.getApiData(`/contratos?${this.params}&${queryParams}`);
+    const url = `/contratos?${this.params}`;
+    this.getApiData(url, this.$route.query);
   },
   beforeRouteUpdate(to) {
-    const queryParams = new URLSearchParams(to.query);
-    this.getApiData(`/contratos?${this.params}&${queryParams}`);
+    const url = `/contratos?${this.params}`;
+    this.getApiData(url, to.query);
   },
 };
 </script>
