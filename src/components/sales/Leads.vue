@@ -39,5 +39,15 @@ export default {
   created() {
     this.getApiData("/leads");
   },
+  beforeRouteEnter() {
+    console.log(
+      "Guarda de rota local executada antes de entrar na rota deste componente e antes mesmo do componente ser instanciado"
+    );
+  },
+  beforeRouteLeave() {
+    console.log(
+      "Guarda de rota local executada antes de sair na rota deste componente"
+    );
+  },
 };
 </script>

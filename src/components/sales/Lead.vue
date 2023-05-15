@@ -47,5 +47,9 @@ export default {
   created() {
     this.getApiData(`/leads/${this.$route.params.id}`);
   },
+  beforeRouteLeave() {
+    const confirm = window.confirm("Deseja sair da tela de edição de lead?");
+    return confirm;
+  },
 };
 </script>

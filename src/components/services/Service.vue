@@ -17,6 +17,7 @@ export default {
     console.log(this.$props);
     this.getApiData(`servicos/${this.id}`);
   },
+  //Guardião de rota beforeRouteUpdate, reage a alteração na rota, podendo fazer tratativas
   beforeRouteUpdate(to) {
     if (to.params.id != undefined) {
       this.getApiData(`/servicos/${to.params.id}`);

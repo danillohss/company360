@@ -18,10 +18,12 @@ const routes = [
     {
         path: '/inicio',
         component: Site,
+        meta: { autorization: false }
     },
     {
         path: '/home',
         name: 'home',
+        meta: { autorization: true },
         component: Home,
         children: [
             {
@@ -32,7 +34,11 @@ const routes = [
                     {
                         path: 'leads',
                         name: 'leads',
-                        component: Leads
+                        component: Leads,
+                        //Função beforeEnter executa um trecho de código antes de entrar na rota, verifica se o usuario está autenticado por exemplo
+                        beforeEnter() {
+                            console.log('Guarda de rota global beforeEnter na rota leads')
+                        }
                     },
                     {
                         path: 'leads/:id/:outroParametro', //ROTA DINAMICA, PASSANDO UM ID(VARIÁVEL DINAMICA) COMO PARAMETRO
@@ -89,9 +95,9 @@ const routes = [
         component: Login
     },
     {
-        //Redirecionamento// Caso o dashboard seja acessado pelo usuario, automaticamente ele será redirecionado para o inicio
-        // path: 'dashboard',
-        // redirect: '/inicio'
+        //Redirecionamento // Caso o dashboard seja acessado pelo usuario, automaticamente ele será redirecionado para o inicio
+        path: '/',
+        redirect: '/inicio'
     },
     {
         path: '/:catchAll(.*)*',
@@ -103,6 +109,22 @@ const routes = [
 const router = createRouter({
     history: createWebHistory(),
     routes,
+})
+
+// router.beforeEach((to) => {
+//     console.log('Guarda global beforeEach: antes de navegar')
+//     //o parametro 'to' retorna a rota ao qual o usuario está indo e a 'from' de onde ele veio
+//     console.log(to)
+// })
+
+// router.afterEach((to) => {
+//     console.log('Guarda global afterEach: após navegar ')
+//     //o parametro 'to' retorna a rota ao qual o usuario está indo e a 'from' de onde ele veio
+//     console.log(to)
+// })
+
+router.beforeResolve(() => { 
+    console.log()
 })
 
 export default router;
