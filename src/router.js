@@ -1,19 +1,44 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '@/views/Home.vue'
-import Rodape from '@/components/dashboard/Rodape.vue'
-import Site from '@/views/Site.vue'
-import Login from '@/views/Login.vue'
-import Services from '@/components/services/Services.vue'
-import Service from '@/components/services/Service.vue'
-import Options from '@/components/services/Options.vue'
-import Indicator from '@/components/services/Indicator.vue'
-import Sales from '@/components/sales/Sales.vue'
-import Leads from '@/components/sales/Leads.vue'
-import Lead from '@/components/sales/Lead.vue'
-import DefaultSale from '@/components/sales/DefaultSale.vue'
-import Contracts from '@/components/sales/Contracts.vue'
-import Dashboard from '@/components/dashboard/Dashboard.vue'
-import RouteNotFound from '@/views/RouteNotFound.vue';
+
+// IMPORTAÇÃO COMUM DOS COMPONENTES
+
+// import Home from '@/views/Home.vue'
+// import Rodape from '@/components/dashboard/Rodape.vue'
+// import Site from '@/views/Site.vue'
+// import Login from '@/views/Login.vue'
+// import Services from '@/components/services/Services.vue'
+// import Service from '@/components/services/Service.vue'
+// import Options from '@/components/services/Options.vue'
+// import Indicator from '@/components/services/Indicator.vue'
+// import Sales from '@/components/sales/Sales.vue'
+// import Leads from '@/components/sales/Leads.vue'
+// import Lead from '@/components/sales/Lead.vue'
+// import DefaultSale from '@/components/sales/DefaultSale.vue'
+// import Contracts from '@/components/sales/Contracts.vue'
+// import Dashboard from '@/components/dashboard/Dashboard.vue'
+// import RouteNotFound from '@/views/RouteNotFound.vue';
+
+//Importação com Lazy loading - Carregamento tardio de componentes visando uma melhor otimização, somente renderizar o componente quando acessado
+//ótimo para aplicações de grande porte assim evitando que todos os componentes sejam renderizados de uma única vez causando lentidão
+//webpackChunkName é um jeito de "empacotar" componentes de mesmo "nicho" assim carregamos de uma forma mais uniforme junto ao lazy loading
+
+const Contracts = () => import(/* webpackChunkName: "sales" */'@/components/sales/Contracts.vue');
+const Dashboard = () => import(/* webpackChunkName: "dashboard" */'@/components/dashboard/Dashboard.vue');
+const RouteNotFound = () => import('@/views/RouteNotFound.vue');
+const Home = () => import('@/views/Home.vue')
+const Rodape = () => import(/* webpackChunkName: "dashboard" */'@/components/dashboard/Rodape.vue')
+const Site = () => import('@/views/Site.vue')
+const Login = () => import('@/views/Login.vue')
+const Services = () => import(/* webpackChunkName: "services" */'@/components/services/Services.vue')
+const Service = () => import(/* webpackChunkName: "services" */'@/components/services/Service.vue')
+const Options = () => import(/* webpackChunkName: "services" */'@/components/services/Options.vue')
+const Indicator = () => import(/* webpackChunkName: "services" */'@/components/services/Indicator.vue')
+const Sales = () => import(/* webpackChunkName: "sales" */'@/components/sales/Sales.vue')
+const Leads = () => import(/* webpackChunkName: "sales" */'@/components/sales/Leads.vue')
+const Lead = () => import(/* webpackChunkName: "sales" */'@/components/sales/Lead.vue')
+const DefaultSale = () => import(/* webpackChunkName: "sales" */'@/components/sales/DefaultSale.vue')
+
+
 const routes = [
     {
         path: '/inicio',
