@@ -45,9 +45,6 @@ export default {
   props: ["id", "outroParametro"],
   mixins: [ApiMixin],
   created() {
-    console.log(this.$route.params, 'aaa');
-    console.log(this.$props);
-    console.log(this.id, this.outroParametro);
     this.getApiData(`/leads/${this.$route.params.id}`);
   },
 };
