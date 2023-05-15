@@ -108,6 +108,15 @@ const routes = [
 
 const router = createRouter({
     history: createWebHistory(),
+    scrollBehavior(to, from, savedPosition) {
+        if (savedPosition) {
+            return savedPosition;
+        }
+        if (to.hash) {
+            return { el: to.hash }
+        }
+        return { left: 0, top: 0 }
+    },
     routes,
 })
 
@@ -123,7 +132,7 @@ const router = createRouter({
 //     console.log(to)
 // })
 
-router.beforeResolve(() => { 
+router.beforeResolve(() => {
     console.log()
 })
 
