@@ -5,5 +5,9 @@
 <script>
 export default {
   name: "OPTIONS",
+  props: ["id"],
+  created() {
+    console.log("Opções", this.id);
+  },
 };
 </script>

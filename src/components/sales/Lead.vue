@@ -28,7 +28,7 @@
     </div>
 
     <div class="col-auto">
-      <router-link class="btn btn-secondary" :to="{ name: 'vendasPadrao' }"
+      <router-link class="btn btn-secondary" to="/home/vendas/leads"
         >Voltar</router-link
       >
       <button type="button" style="margin: 0 15px" class="btn btn-primary">
@@ -42,8 +42,12 @@
 import ApiMixin from "@/mixins/ApiMixin";
 export default {
   name: "LEAD",
+  props: ["id", "outroParametro"],
   mixins: [ApiMixin],
   created() {
+    console.log(this.$route.params, 'aaa');
+    console.log(this.$props);
+    console.log(this.id, this.outroParametro);
     this.getApiData(`/leads/${this.$route.params.id}`);
   },
 };

@@ -6,5 +6,9 @@
 export default {
   // eslint-disable-next-line
   name: "INDICATOR",
+  props: ["id"],
+  created() {
+    console.log("Indicadores", this.id);
+  },
 };
 </script>

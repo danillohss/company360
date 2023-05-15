@@ -12,8 +12,10 @@ import ApiMixin from "@/mixins/ApiMixin";
 export default {
   name: "SERVICE",
   mixins: [ApiMixin],
+  props: ["id"],
   created() {
-    this.getApiData(`servicos/${this.$route.params.id}`);
+    console.log(this.$props);
+    this.getApiData(`servicos/${this.id}`);
   },
   beforeRouteUpdate(to) {
     if (to.params.id != undefined) {

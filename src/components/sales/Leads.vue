@@ -17,7 +17,10 @@
           <td>{{ data.telefone }}</td>
           <td>
             <router-link
-              :to="{ name: 'lead', params: { id: data.id } }"
+              :to="{
+                name: 'lead',
+                params: { id: data.id, outroParametro: `teste_${data.id}` },
+              }"
               class="btn btn-sm btn-primary"
               ><i class="bi bi-pencil-square"></i
             ></router-link>

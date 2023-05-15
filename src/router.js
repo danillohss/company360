@@ -35,9 +35,10 @@ const routes = [
                         component: Leads
                     },
                     {
-                        path: 'leads/:id', //ROTA DINAMICA, PASSANDO UM ID(VARIÁVEL DINAMICA) COMO PARAMETRO
+                        path: 'leads/:id/:outroParametro', //ROTA DINAMICA, PASSANDO UM ID(VARIÁVEL DINAMICA) COMO PARAMETRO
                         name: 'lead',
-                        component: Lead
+                        component: Lead,
+                        props: true,
                     },
                     {
                         path: 'contratos',
@@ -58,6 +59,11 @@ const routes = [
                 children: [
                     {
                         path: ':id',
+                        props: {
+                            default: true,
+                            options: false,
+                            indicator: true,
+                        },
                         name: 'servico',
                         components: {
                             default: Service,
@@ -87,10 +93,10 @@ const routes = [
         // path: 'dashboard',
         // redirect: '/inicio'
     },
-    { 
-        path: '/:catchAll(.*)*', 
-        component: RouteNotFound, 
-        name: 'RouteNotFound' 
+    {
+        path: '/:catchAll(.*)*',
+        component: RouteNotFound,
+        name: 'RouteNotFound'
     }
 ]
 
