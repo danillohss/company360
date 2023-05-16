@@ -23,6 +23,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 //webpackChunkName é um jeito de "empacotar" componentes de mesmo "nicho" assim carregamos de uma forma mais uniforme junto ao lazy loading
 
 const Contracts = () => import(/* webpackChunkName: "sales" */'@/components/sales/Contracts.vue');
+const SuccessSales = () => import(/* webpackChunkName: "sales" */'@/components/sales/SuccessSales.vue');
 const Dashboard = () => import(/* webpackChunkName: "dashboard" */'@/components/dashboard/Dashboard.vue');
 const RouteNotFound = () => import('@/views/RouteNotFound.vue');
 const Home = () => import('@/views/Home.vue')
@@ -80,6 +81,11 @@ const routes = [
                         path: '',
                         name: 'vendasPadrao',
                         component: DefaultSale,
+                    },
+                    {
+                        path: 'vendasConcluidas',
+                        name: 'vendasConcluidas',
+                        component: SuccessSales,
                     },
                 ]
             },

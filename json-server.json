@@ -77,5 +77,37 @@
 			"data_inicio": "2021-01-01 00:00:00 ",
 			"data_fim": "2021-12-31 23:59:59"
 		}
+	],
+	"VendasConcluidas": [
+		{
+			"servicoId": 1,
+			"nome": "José da silva",
+			"data_contratacao": "19/01/2022"
+		},
+		{
+			"servicoId": 2,
+			"nome": "Fernando Dias",
+			"data_contratacao": "10/11/2021"
+		},
+		{
+			"servicoId": 3,
+			"nome": "João Siqueira",
+			"data_contratacao": "13/04/2022"
+		},
+		{
+			"servicoId": 1,
+			"nome": "Miguel Joaquim",
+			"data_contratacao": "31/01/2021"
+		},
+		{
+			"servicoId": 2,
+			"nome": "Luana Martins",
+			"data_contratacao": "23/06/2021"
+		},
+		{
+			"servicoId": 3,
+			"nome": "Danillo Silva",
+			"data_contratacao": "26/12/2022"
+		}
 	]
 }

@@ -48,6 +48,13 @@
                 >Contratos</router-link
               >
             </li>
+            <li>
+              <router-link
+                class="dropdown-item"
+                :to="{ name: 'vendasConcluidas' }"
+                >Vendas Finalizadas</router-link
+              >
+            </li>
           </ul>
         </div>
         <router-link
